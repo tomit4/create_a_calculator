@@ -136,15 +136,20 @@ body {
     background-color: var(--orange-500);
 }
 
-.operator {
+[data-type="operator"] {
     background: var(--grey-100);
 }
 
-.number {
+[data-type="number"] {
     background: #fff;
 }
 
-.operator:active,
-.number:active {
+[data-type="operator"]:active,
+[data-type="number"]:active {
+    background: var(--grey-200);
+}
+
+/* operator is selected */
+[data-state="selected"] {
     background: var(--grey-200);
 }
