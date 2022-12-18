@@ -1,7 +1,4 @@
-// Start writing JavaScript here!
 const calculator= document.querySelector('.calculator')
-/* selects only within the parent element, saves on resources
- instead of quering the entire DOM */
 const keys = calculator.querySelector('.calculator_keys')
 const display = calculator.querySelector('.calculator_display')
 const operatorKeys = document.querySelectorAll('[data-type="operator"]')
@@ -54,24 +51,10 @@ function calculate(firstNumber, operator, secondNumber) {
     firstNumber = parseInt(firstNumber)
     secondNumber = parseInt(secondNumber)
 
-    /* note how this version doesn't store the data in a variable, result,
-     instead it just returns the data */
     if (operator === 'plus') return firstNumber + secondNumber
     if (operator === 'minus') return firstNumber - secondNumber
     if (operator === 'times') return firstNumber * secondNumber
     if (operator === 'divide') return firstNumber / secondNumber
-
-    /* same as above, but with switch/case */
-    /* note that if you have a use for result after the switch case is done, and
-     not if you just return it*/
-    // let result = ''
-    // switch(operator) {
-        // case 'plus':  result = firstNumber + secondNumber; break;
-        // case 'minus':  result = firstNumber - secondNumber; break;
-        // case 'times':  result = firstNumber * secondNumber; break;
-        // case 'divide':  result = firstNumber / secondNumber; break;
-    // }
-    // return result
 }
 
 /* *********************
@@ -110,14 +93,6 @@ function testKeySequence(test) {
     testClearKey()
 }
 
-// const test = {
-    // keys: ['1', '5', '9'],
-    // value: '159',
-    // message: 'Click 159'
-// }
-
-// testKeySequence(test)
-
 const tests = [{
     keys: ['1'],
     value: '1',
@@ -149,30 +124,3 @@ const tests = [{
 }]
 
 tests.forEach(test => testKeySequence(test))
-
-// const displayValue = display.textContent
-// console.log(displayValue)
-
-/* note that here we couldn't use displayValue above because .
- textContent doesn't update automatically */
-// one.click()
-// console.assert(display.textContent === '1', 'Clicked One')
-
-// One test
-// one.click()
-// console.assert(display.textContent === '1', 'Clicked One')
-
-// unnamed function _
-// setTimeout(_ => {
-    // console.log('Testing timer')
-    // clearCalculator()
-    // testClearKey()
-// }, 1000)
-
-// 15
-// one.click()
-// five.click()
-// nine.click()
-// console.assert(display.textContent === '159', 'Clicked One and Five and Nine')
-// clearCalculator()
-// testClearKey()
