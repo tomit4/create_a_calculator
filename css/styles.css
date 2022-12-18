@@ -49,10 +49,102 @@ body {
  *****************/
 
 .calculator {
-    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 100%);
+    border-radius: 0.5em;
+    /* necessary as buttons oveflow, border-radius won't work without this */
+    overflow: hidden;
 }
 
 .calculator_display {
-    /*  */
+    background-color: var(--grey-900);
+    color: var(--grey-050);
+    width: 14.25rem;
+    padding: 0.75rem 1rem;
+    text-align: right;
+    /* font-scaling technique */
+    font-size: calc(1rem * 1.2 * 1.2);
+}
 
+.calculator_keys > button {
+    font-size: 100%;
+    border: 0;
+}
+
+/* interesting choice here, it has to do with accessibility
+ * screen readers will read from top to bottom, but the calculator
+ * orders key in an unintuitive way, thusly we use grid-template-areas to
+ * display them correctly, but it will read differently on a screenreader*/
+.calculator_keys {
+    background: var(--grey-200);
+    height: 12rem;
+    display: grid;
+    grid-gap: 2px;
+    grid-template-columns: repeat(4, auto);
+    grid-template-areas:
+        ". . . ."
+        "seven eight nine equal"
+        "four five six equal"
+        "one two three equal"
+        "zero decimal clear equal";
+}
+
+.one {
+    grid-area: one;
+}
+.two {
+    grid-area: two;
+}
+.three {
+    grid-area: three;
+}
+.four {
+    grid-area: four;
+}
+.five {
+    grid-area: five;
+}
+.six {
+    grid-area: six;
+}
+.seven {
+    grid-area: seven;
+}
+.eight {
+    grid-area: eight;
+}
+.nine {
+    grid-area: nine;
+}
+.zero {
+    grid-area: zero;
+}
+.decimal {
+    grid-area: decimal;
+}
+.clear {
+    grid-area: clear;
+}
+.equal {
+    grid-area: equal;
+    background-color: var(--orange-400);
+}
+
+/* no cursor: pointer; on hover state unless it is a link */
+/* :focus is if navigated to by keyboard instead of hover */
+/* active is when navgiated by click(?) */
+.equal:active {
+    background-color: var(--orange-500);
+}
+
+.operator {
+    background: var(--grey-100);
+}
+
+.number {
+    background: #fff;
+}
+
+.operator:active,
+.number:active {
+    background: var(--grey-200);
 }
